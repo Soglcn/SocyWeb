@@ -1,3 +1,14 @@
+@font-face {
+  font-family: 'Montserrat';
+  src: url('./Fonts/Montserrat_Alternates/MontserratAlternates-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('./Fonts/Poppins/Poppins-Regular.ttf') format('truetype');
+}
+
+
 :root {
   --background-color: #222222;
   --primary-color: #c6ff40;
@@ -7,18 +18,21 @@
   --hover-color: #8a2be2;
 }
 
-*{
+
+body{
   margin: 0;
+  width: 100%;
   background-color: var(--background-color);
-  color: var(--text-color);
+  font-family: 'Poppins';
 }
 
 header{
   display:flex;
   flex-direction: column;
   align-items: center;
-  width: 100vw;
+  width: 100%;
   height: 10vh;
+  margin: 0%;
   overflow: hidden;
   position: absolute;
   z-index: 9;
@@ -58,10 +72,11 @@ header{
   align-items: center;
   padding: 5px 25px 5px 25px;
   transition: 0.5s all ease;
+  color: var(--text-color);
 }
 
 .header-menu-area a:hover{
-  background-color: #ff7f50;
+  background-color: var(--third-color);
 }
 
 .header-menu-area img{
@@ -70,8 +85,63 @@ header{
   border-radius: 100%;
 }
 
-.main-container{
-  position: relative;
+.welcome-container{
+  color: var(--text-color);
+  height: 90vh;
+  padding-top: 10vh;
+}
+
+.welcome-text{
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  z-index: 1;
+  width: 80%;
+  height: 70%;
+  margin-left: 10%;
+  mix-blend-mode: exclusion;
+}
+
+.welcome-text h1{
+  font-weight: bolder;
+  font-size: 70pt;
+  margin: 0;
+}
+
+.welcome-text h3{
+  font-size: 25pt;
+  margin: 5px 0 0 0;
+}
+
+.welcome-text a{
+  background-color: var(--primary-color);
+  font-size: 20pt;
+  padding: 15px 50px 15px 50px;
+  margin-top: 15px;
+  border-radius: 25px;
+  text-decoration: none;
+  color: var(--background-color);
+  transition: all 0.5s ease;
+}
+
+.welcome-text a:hover{
+  background-color: var(--third-color);
+  color: var(--text-color);
+}
+
+.welcome-graphs{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
   z-index: 0;
-  background-color: #a8c064;
+  overflow: hidden;
+}
+
+.welcome-graphs img{
+  width: 75%;
+  margin-top: -5%;
 }
