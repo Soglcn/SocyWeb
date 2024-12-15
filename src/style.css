@@ -1,0 +1,77 @@
+:root {
+  --background-color: #222222;
+  --primary-color: #c6ff40;
+  --text-color: #f3f5ed;
+  --secondary-color: #a8c064;
+  --third-color: #ff7f50;
+  --hover-color: #8a2be2;
+}
+
+*{
+  margin: 0;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+header{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100vw;
+  height: 10vh;
+  overflow: hidden;
+  position: absolute;
+  z-index: 9;
+}
+
+.header-logo-area{
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  height: 50%;
+  width: 100%;
+}
+
+.header-logo-area img{
+  height: 60px;
+}
+
+.header-menu-area{
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  height: 40%;
+  width: 100%;
+}
+
+.header-menu-area a{
+  margin: 0px 5px 0px 5px;
+  font-size: 15pt;
+  text-decoration: none;
+  border-radius: 25px;
+  width: 75px;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 25px 5px 25px;
+  transition: 0.5s all ease;
+}
+
+.header-menu-area a:hover{
+  background-color: #ff7f50;
+}
+
+.header-menu-area img{
+  height: 15pt;
+  margin-left: 15%;
+  border-radius: 100%;
+}
+
+.main-container{
+  position: relative;
+  z-index: 0;
+  background-color: #a8c064;
+}
