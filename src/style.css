@@ -33,6 +33,7 @@ header{
   width: 100%;
   height: 10vh;
   margin: 0%;
+  padding-top: 15px;
   overflow: hidden;
   position: absolute;
   z-index: 9;
@@ -143,5 +144,32 @@ header{
 
 .welcome-graphs img{
   width: 75%;
-  margin-top: -5%;
+  margin-top: -2.5%;
+}
+
+.met-me{
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding-left: 10%;
+  background-color: #ffff;
+}
+
+.my-photo{
+  height: 100%;
+}
+
+.my-words{
+  position: absolute;
+  z-index: 1;
+  width: 55%;
+  color: var(--background-color);
+}
+
+.my-words h1{
+  font-size: 60pt;
+}
+
+.my-words p{
+  font-size: 25pt;
 }
