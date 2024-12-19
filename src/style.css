@@ -14,8 +14,7 @@
   --primary-color: #c6ff40;
   --text-color: #f3f5ed;
   --secondary-color: #a8c064;
-  --third-color: #ff7f50;
-  --hover-color: #8a2be2;
+  --third-color: #032de7;
 }
 
 
@@ -23,7 +22,12 @@ body{
   margin: 0;
   width: 100%;
   background-color: var(--background-color);
+  background-image: url(./Media/Graphics/dust.jpg);
+  background-size: cover;
+  background-repeat: repeat;
+  background-position: center; 
   font-family: 'Poppins';
+  overflow-x: hidden;
 }
 
 header{
@@ -151,19 +155,20 @@ header{
   display: flex;
   align-items: center;
   width: 100%;
+  height: 100vh;
   padding-left: 10%;
-  background-color: #ffff;
-}
-
-.my-photo{
-  height: 100%;
+  background-image: url(./Media/Graphics/me2.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; 
 }
 
 .my-words{
   position: absolute;
   z-index: 1;
-  width: 55%;
-  color: var(--background-color);
+  width: 50%;
+  color: var(--text-color);
+  mix-blend-mode: exclusion;
 }
 
 .my-words h1{
@@ -171,5 +176,5 @@ header{
 }
 
 .my-words p{
-  font-size: 25pt;
+  font-size: 20pt;
 }
