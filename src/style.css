@@ -8,6 +8,20 @@
   src: url('./Fonts/Poppins/Poppins-Regular.ttf') format('truetype');
 }
 
+@font-face {
+  font-family: 'Poppins-Thin';
+  src: url('./Fonts/Poppins/Poppins-Thin.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Poppins-Bold';
+  src: url('./Fonts/Poppins/Poppins-Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Poppins-Light';
+  src: url('./Fonts/Poppins/Poppins-Light.ttf') format('truetype');
+}
 
 :root {
   --background-color: #222222;
@@ -17,19 +31,23 @@
   --third-color: #032de7;
 }
 
+/* GENERAL */
 
 body{
   margin: 0;
   width: 100%;
   background-color: var(--background-color);
   background-image: url(./Media/Graphics/dust.jpg);
-  background-size: cover;
+  background-size: 100% auto;
   background-repeat: repeat;
   background-position: center; 
   font-family: 'Poppins';
   overflow-x: hidden;
+  color: var(--text-color);
 }
 
+
+/* Header */
 header{
   display:flex;
   flex-direction: column;
@@ -91,6 +109,7 @@ header{
   border-radius: 100%;
 }
 
+/* Welcome */
 .welcome-container{
   color: var(--text-color);
   height: 90vh;
@@ -111,19 +130,21 @@ header{
 }
 
 .welcome-text h1{
-  font-weight: bolder;
+  font-family: 'Poppins-Bold';
   font-size: 70pt;
   margin: 0;
+  letter-spacing: 4px;
 }
 
 .welcome-text h3{
   font-size: 25pt;
   margin: 5px 0 0 0;
+  letter-spacing: 2px;
 }
 
 .welcome-text a{
   background-color: var(--primary-color);
-  font-size: 20pt;
+  font-size: 15pt;
   padding: 15px 50px 15px 50px;
   margin-top: 15px;
   border-radius: 25px;
@@ -148,34 +169,78 @@ header{
 }
 
 .welcome-graphs img{
-  width: 75%;
+  width: 65%;
   margin-top: -2.5%;
 }
 
+/* Met Me */
 .met-me{
   display: flex;
   align-items: center;
   width: 100%;
   height: 100vh;
   padding-left: 10%;
-  background-image: url(./Media/Graphics/Me.png);
-  background-size: 100% auto;
+  background-image: url(./Media/Graphics/Me3.png);
+  background-size: 80% auto;
   background-repeat: no-repeat;
   background-position: bottom; 
 }
 
 .my-words{
-  position: absolute;
-  z-index: 1;
   width: 50%;
   color: var(--text-color);
   mix-blend-mode: exclusion;
 }
 
 .my-words h1{
-  font-size: 60pt;
+  font-family: 'Poppins-Bold';
+  font-size: 40pt;
+  letter-spacing: 2px;
 }
 
 .my-words p{
-  font-size: 20pt;
+  font-family: 'Poppins-Light';
+  font-size: 14pt;
+  letter-spacing: 2px;
+}
+
+/* Main Goals*/
+.main-goals{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 90%;
+  padding-right: 10%;
+}
+
+.my-main-goal{
+  text-align: right;
+  mix-blend-mode: exclusion;
+}
+
+.my-main-goal a{
+  background-color: var(--primary-color);
+  font-size: 15pt;
+  padding: 15px 50px 15px 50px;
+  border-radius: 25px;
+  text-decoration: none;
+  color: var(--background-color);
+  transition: all 0.5s ease;
+}
+
+.my-main-goal  a:hover{
+  background-color: var(--third-color);
+  color: var(--text-color);
+}
+
+.my-main-goal h1{
+  font-family: 'Poppins-Bold';
+  font-size: 40pt;
+  letter-spacing: 2px;
+}
+
+.my-main-goal h3{
+  font-family: 'Poppins-Light';
+  font-size: 14pt;
+  font-weight: 100;
 }
