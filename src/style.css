@@ -35,6 +35,7 @@
 
 /* GENERAL */
 html {
+  cursor: none;
   scroll-behavior: smooth;
 }
 
