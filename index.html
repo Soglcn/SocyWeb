@@ -16,21 +16,49 @@
         <a href="#">Projects</a>
         <a href="#">Career</a>
         <a href="#">About</a>
-        <a href="#">Contact</a>
-        <a href="#">Türkçe <img src="src/Media/Graphics/flag_tr.png" alt=""></a>
+        <a href="#" class="menu-contact">Contact</a>
       </div>
     </header>
-      <div class="welcome-container">
+    <!--Cursor-->
+    <div class="cursor"></div>
+
+    <script>
+      const cursor = document.querySelector('.cursor');
+  
+      document.addEventListener('mousemove', (e) => {
+        const x = e.clientX + window.scrollX;  
+        const y = e.clientY + window.scrollY; 
+        cursor.style.left = `${x}px`;
+        cursor.style.top = `${y}px`;
+      });
+    </script>
+
+    <!--Welcome Part-->
+    <div class="welcome-container">
         <div class="welcome-text">
-          <h1>Where Imagination Meets Code</h1>
-          <h3>Crafting Digital Realities, One Pixel at a Time</h3>
+          <h1>Where Imagination <br> Meets Code</h1>
+          <h3>Crafting Digital Realities, One Pixel at a Time, <br> Bridging the Gap Between Imagination and Technology</h3>
           <a href="#">Explore!</a>
         </div>
         <div class="welcome-graphs">
-          <img src="src/Media/Graphics/Cube.gif" alt="" class="cube">
+          <img src="src/Media/Graphics/Pozitrone.png" alt="" class="welcome-drone">
+          <script>
+            const cube = document.querySelector('.welcome-drone');
+
+            document.addEventListener('mousemove', (event) => {
+              const mouseX = event.clientX;
+              const mouseY = event.clientY;
+
+              const offsetX = (mouseX / window.innerWidth) * 50 - 10; 
+              const offsetY = (mouseY / window.innerHeight) * 50 - 10; 
+
+            cube.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
+            });
+          </script>
         </div>
-      </div>
-      <div class="met-me">
+    </div>  
+    <!--Met Me-->
+    <div class="met-me">
         <div class="my-words">
           <h1>Hi there, Yozgadius Here!</h1>
           <p>Since 2018, I’ve worked as a 3D Generalist and Developer, 
@@ -40,8 +68,10 @@
             architectural firm. I also working on game projects like 
             Quadrushers and Cosmic Contamination.</p>
         </div>
-      </div>
-      <div class="main-goals">
+    </div>
+    
+    <!--Main Goals-->
+    <div class="main-goals">
         <div class="graph-main-goal">
           <img src="./src/Media/Graphics/Timur.png" alt="">
         </div>
@@ -53,8 +83,47 @@
             communication with specialized professionals, ensuring seamless collaboration.</h3>
           <a href="#">More</a>
         </div>
+    </div>
+
+    <!--Skills-->
+    <div class="skills-area">
+      <div class="skills-chart">
+        <table>
+          <thead>
+            <tr>
+              <th>Skill</th>
+              <th>Level</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>3D Generalist</td>
+              <td>&#9733; &#9733; &#9733; &#9733; &#9734;</td>
+            </tr>
+            <tr>
+              <td>Creative Writing</td>
+              <td>&#9733; &#9733; &#9733; &#9733; &#9734;</td>
+            </tr>
+            <tr>
+              <td>Software / Web Development</td>
+              <td>&#9733; &#9733; &#9733; &#9734; &#9734;</td>
+            </tr>
+            <tr>
+              <td>Front-End Development</td>
+              <td>&#9733; &#9733; &#9733; &#9734; &#9734;</td>
+            </tr>
+            <tr>
+              <td>Graphic Arts</td>
+              <td>&#9733; &#9733; &#9734; &#9734; &#9734;</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
+      
+      
+    </div>
+
   </body>
 </html>
 
-<!--GIT CHECK AGAIN-->
+

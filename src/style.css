@@ -24,20 +24,24 @@
 }
 
 :root {
-  --background-color: #222222;
-  --primary-color: #c6ff40;
-  --text-color: #f3f5ed;
+  --background-color: #ebebeb;
+  --primary-color: #3900bf;
+  --text-color: #e9e9e9;
   --secondary-color: #a8c064;
-  --third-color: #032de7;
+  --third-color: #c6ff40;
+  --dark-text: #f1f1f1;
+  --inverted: #000;
 }
 
 /* GENERAL */
+html {
+  scroll-behavior: smooth;
+}
 
 body{
   margin: 0;
   width: 100%;
   background-color: var(--background-color);
-  background-image: url(./Media/Graphics/dust.jpg);
   background-size: 100% auto;
   background-repeat: repeat;
   background-position: center; 
@@ -46,74 +50,107 @@ body{
   color: var(--text-color);
 }
 
+::-webkit-scrollbar {
+  display: none;
+}
+
+.cursor {
+  position: absolute;
+  z-index: 999;
+  width: 30px;
+  height: 30px;
+  background-color: var(--third-color);
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  mix-blend-mode: exclusion;
+}
 
 /* Header */
 header{
   display:flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  width: 100%;
-  height: 10vh;
-  margin: 0%;
-  padding-top: 15px;
+  width: 95%;
+  margin-left: 2.5%;
+  height: 5vh;
   overflow: hidden;
   position: fixed;
-  mix-blend-mode: exclusion;
   z-index: 9;
+  mix-blend-mode: exclusion;
+  color: var(--dark-text);
 }
 
 .header-logo-area{
   display: flex;
   text-align: center;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   height: 50%;
   width: 100%;
 }
 
 .header-logo-area img{
-  height: 60px;
+  height: 45px;
 }
 
 .header-menu-area{
   display: flex;
   text-align: center;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
   height: 40%;
   width: 100%;
 }
 
 .header-menu-area a{
+  font-family: 'Poppins-Light';
   margin: 0px 5px 0px 5px;
-  font-size: 15pt;
+  font-size: 10pt;
   text-decoration: none;
-  border-radius: 25px;
-  width: 75px;
+  border-radius: 10px;
+  width: 40px;
   display: flex;
   text-align: center;
   justify-content: center;
   align-items: center;
-  padding: 5px 25px 5px 25px;
+  padding: 5px 35px 5px 35px;
   transition: 0.5s all ease;
   color: var(--text-color);
+  letter-spacing: 2px;
 }
 
 .header-menu-area a:hover{
-  background-color: var(--third-color);
+  letter-spacing: 4px;
+  background-color: var(--background-color);
+  color: var(--primary-color);
+}
+
+.menu-contact{
+  background-color: var(--background-color);
+  color: var(--inverted) !important;
+}
+
+.menu-contact:hover{
+  background-color: var(--primary-color) !important;
+  color: var(--dark-text) !important;
 }
 
 .header-menu-area img{
   height: 15pt;
   margin-left: 15%;
   border-radius: 100%;
+  transition: all 0.5s ease;
+}
+
+.home-button:hover img {
+  opacity: 0.75;
 }
 
 /* Welcome */
 .welcome-container{
   color: var(--text-color);
-  height: 90vh;
-  padding-top: 10vh;
+  height: 100vh;
 }
 
 .welcome-text{
@@ -124,38 +161,48 @@ header{
   justify-content: flex-end;
   z-index: 1;
   width: 80%;
-  height: 70%;
-  margin-left: 10%;
+  height: 50%;
+  margin-left: 2.5%;
+  margin-top: 22.5%;
   mix-blend-mode: exclusion;
 }
 
 .welcome-text h1{
   font-family: 'Poppins-Bold';
-  font-size: 70pt;
+  font-size: 110pt;
   margin: 0;
-  letter-spacing: 4px;
+  letter-spacing: -2px;
+  line-height: 100pt;
+  cursor: default;
 }
 
 .welcome-text h3{
-  font-size: 25pt;
+  font-family: 'Poppins-Thin';
+  font-size: 24pt;
+  letter-spacing: 3px;
   margin: 5px 0 0 0;
-  letter-spacing: 2px;
+  cursor: default;
 }
 
 .welcome-text a{
-  background-color: var(--primary-color);
+  font-family: 'Poppins-Thin';
   font-size: 15pt;
-  padding: 15px 50px 15px 50px;
+  letter-spacing: 1px;
+  padding: 0;
   margin-top: 15px;
-  border-radius: 25px;
-  text-decoration: none;
+  border-radius: 10px;
   color: var(--background-color);
   transition: all 0.5s ease;
 }
 
 .welcome-text a:hover{
-  background-color: var(--third-color);
+  background-color: var(--primary-color);
+  font-family: 'Poppins';
   color: var(--text-color);
+  text-decoration: none;
+  padding: 0px 15px 0px 15px;
+  font-size: 15pt;
+  letter-spacing: 3px;
 }
 
 .welcome-graphs{
@@ -169,8 +216,13 @@ header{
 }
 
 .welcome-graphs img{
-  width: 65%;
-  margin-top: -2.5%;
+  width: 120%;
+  margin-top: -10%;
+  mix-blend-mode: difference;
+}
+
+.welcome-drone{
+  transition: transform 1s ease-out; 
 }
 
 /* Met Me */
@@ -244,3 +296,7 @@ header{
   font-size: 14pt;
   font-weight: 100;
 }
+
+/* Skills */
+
+
