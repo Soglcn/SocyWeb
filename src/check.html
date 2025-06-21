@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3 Haftalık İlerleme Takip Tablosu</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1, h2 {
+            color: #2c3e50;
+            text-align: center;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            font-size: 0.9em;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center; /* Checkbox'ları ortalamak için */
+            vertical-align: middle;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+            position: sticky;
+            top: 0; /* Header'ı yapışkan yapmak için */
+            z-index: 1;
+        }
+        tbody tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .week-header {
+            background-color: #5cb85c;
+            color: white;
+            font-weight: bold;
+            text-align: center;
+        }
+        input[type="checkbox"] {
+            transform: scale(1.2); /* Checkbox'ları biraz büyütmek için */
+            cursor: pointer;
+        }
+        .notes {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 5px;
+            background-color: #e7f3fe;
+            border-left: 6px solid #2196F3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>3 Haftalık İlerleme Takip Tablosu</h1>
+        <p class="notes">
+            Bu tablo, günlük hedeflerinize ulaşıp ulaşmadığınızı takip etmeniz için tasarlanmıştır. Her kutucuğu işaretlediğinizde, bu bilgi tarayıcınızda otomatik olarak kaydedilir ve sayfayı yenileseniz bile kalır.
+            (Tarayıcınızın geçmişini veya çerezlerini temizlerseniz kayıtlar silinebilir.)
+        </p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th rowspan="2">Hafta</th>
+                    <th rowspan="2">Gün</th>
+                    <th rowspan="2">Tarih</th>
+                    <th colspan="7">Başarılan Hedefler</th>
+                </tr>
+                <tr>
+                    <th>04:30 Uyanış</th>
+                    <th>Antrenman Yaptı</th>
+                    <th>Spinning Yaptı</th>
+                    <th>Öğünlere Uydu</th>
+                    <th>Yolculukta Strateji</th>
+                    <th>7 Saat Uyudu</th>
+                    <th>4.5L Su İçti</th>
+                    <th>13.000 Adım Attı</th>
+                </tr>
+            </thead>
+            <tbody id="tracker-body">
+                </tbody>
+        </table>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const startDate = new Date('2025-06-23T04:30:00'); // Planın başlangıç tarihi (Pazartesi)
+            const totalWeeks = 3;
+            const daysInWeek = 7;
+            const trackerBody = document.getElementById('tracker-body');
+
+            const activities = [
+                'wakeUp', 'workout', 'spinning', 'meals', 'commuteStrategy', 'sleep', 'water', 'steps'
+            ];
+
+            function renderTable() {
+                trackerBody.innerHTML = ''; // Tabloyu temizle
+
+                for (let week = 1; week <= totalWeeks; week++) {
+                    const weekHeaderRow = document.createElement('tr');
+                    weekHeaderRow.className = 'week-header';
+                    weekHeaderRow.innerHTML = `<td colspan="10">HAFTA ${week}</td>`;
+                    trackerBody.appendChild(weekHeaderRow);
+
+                    for (let day = 0; day < daysInWeek; day++) {
+                        const currentRowDate = new Date(startDate);
+                        currentRowDate.setDate(startDate.getDate() + (week - 1) * daysInWeek + day);
+
+                        const row = document.createElement('tr');
+                        const dayOfWeekName = ['Pazartesi', 'Salı', 'Çarşamba', 'Perşembe', 'Cuma', 'Cumartesi', 'Pazar'][day];
+
+                        row.innerHTML = `
+                            <td>${week}</td>
+                            <td>${dayOfWeekName}</td>
+                            <td>${currentRowDate.toLocaleDateString('tr-TR')}</td>
+                        `;
+
+                        activities.forEach(activity => {
+                            const checkboxId = `week${week}_day${day}_${activity}`;
+                            const isChecked = localStorage.getItem(checkboxId) === 'true';
+                            
+                            const td = document.createElement('td');
+                            const checkbox = document.createElement('input');
+                            checkbox.type = 'checkbox';
+                            checkbox.id = checkboxId;
+                            checkbox.checked = isChecked;
+                            
+                            checkbox.addEventListener('change', function() {
+                                localStorage.setItem(this.id, this.checked);
+                            });
+                            td.appendChild(checkbox);
+                            row.appendChild(td);
+                        });
+                        trackerBody.appendChild(row);
+                    }
+                }
+            }
+
+            renderTable();
+        });
+    </script>
+</body>
+</html>
